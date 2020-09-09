@@ -22,6 +22,16 @@ const Game = () => {
     setXIsNext(!xIsNext);
   };
 
+  const renderMoves = () =>
+    history.map((_step, move) => {
+      const destination = move ? `Go to move #${move}` : `Go to start`;
+      return (
+        <li key={move}>
+          <button onClick={() => jumpTo(move)}>{destination}</button>
+        </li>
+      );
+    });
+
   return (
     <>
       <h1>React Tic Tac Toe</h1>
